@@ -7,7 +7,7 @@ class User
       echo "hello";
     }
     function say_bye()
-    { 
-      echo "bye";
+    {
+        return "bye";
     }
 }

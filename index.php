@@ -1,12 +1,9 @@
 <?php 
 require_once 'vendor/autoload.php';
 $sravan = new \Sravan\User();
-$sravan->say_bye();
 
-
-$loader = new Twig_Loader_Array(array(
-    'index' => 'Hello {{ name }}!',
-));
+$loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader);
 
-echo $twig->render('index', array('name' => 'Fabien'));
+$template = $twig->load('sravan.html');
+echo $template->render(array('title' => $sravan->say_bye(), 'go' => 'See you tomorrow'));
